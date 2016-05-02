@@ -1,0 +1,98 @@
+Student Name #1: TODO: Tunir Vijayanta Kapil
+Student ugrad login #1: TODO: r4w9a
+
+Student Name #2: TODO: Jayvardhana Agrawal
+Student ugrad login #2: TODO: d2a0b
+
+Team name (for fun!): TODO: Team Make Final Easier Please
+
+Acknowledgment that you understand and have followed the course's
+collaboration policy
+(http://www.ugrad.cs.ubc.ca/~cs221/current/syllabus.shtml#conduct):
+
+TODO: [Tunir Vijayanta Kapil, Jayvardhana Agrawal]
+
+TODO: submit using: make handin-proj1
+
+----------------------------------------------------------------------
+
+Approximate hours on project: TODO: 12 hours
+
+----------------------------------------------------------------------
+
+For teams, rough breakdown of work: TODO:
+We consistently worked on the project together, either in person or through technologies. This was done through softwares such as Skype (Screensharing), Teamviewer, etc. Both of us were responsible for coding, and a majority of the times, we would both code for practice. Debugging was done together. For testing the steps and running times, Tunir made an Excel spreadsheet while Jay was responsible for running the code with different mazes and data structures. Excel sheet can be provided on request.
+
+----------------------------------------------------------------------
+
+Acknowledgment of assistance: TODO: Stackoverflow and Lecture notes were used for understanding data structures.
+
+----------------------------------------------------------------------
+
+Questions:
+
+For the explanations, generally a sentence or two should be enough.
+Type your answers directly in this file.
+
+
+1.  Edit solve.cpp to use either of your queue classes to solve Mazes
+1, 2, 3, and 4.  Set a large enough delay in the solveMaze function
+(like 200000) to watch what's happening.  Do you see why this is called
+breadth-first search (BFS)?  How many steps long were your solutions?
+How does this compare with DFS?
+
+TODO: It is BFS because it checks each of the available routes simultaneously by taking a step into each of them before proceeding.
+Maze #: Q vs Stack
+Maze 1: 58 steps vs 58 steps
+Maze 2: 14 steps vs 46 steps
+Maze 3: 5 steps vs 247 steps
+Maze 4: 90 steps vs 110 steps
+Consistently, BFS does better than DFS, because BFS tries all the routes simultaneously. DFS, on the other hand, commits to the first route it sees, making it prone to longer steps due to deadends.
+
+2.  Try to solve the blank Sudoku board using your ArrayQueue
+and LinkedListQueue classes.  What happens?  Why?
+
+TODO: BFS is an unreasonable choice for solving the empty Sudoku board since the branching factor is enormous, and the solution lies in the very deepest branch. Hence, BFS can cause some really huge memory problems when attempting to solve the empty board. For this reason, we stopped the algorithm after half an hour, when it still hadn't reached the solution. Using the print statements, we discovered that BFS checks every single possibility (digits 0 to 9) for each Sudoku space before moving onto the next one. So, in a sense it works like a counter, which is a bad idea when solving Sudoku.
+
+3.  Switch to the medium-difficulty Sudoku problem, and comment
+out the delay and the print statements in the solveMaze function.
+How long does it take to solve the puzzle using your ArrayQueue
+class?  Using your LinkedListQueue class?  Is the difference big?
+
+TODO:
+ArrayQueue:
+Solution Steps - 50 steps. Time - 53.456 seconds
+LinkedListQueue:
+Solution Steps - 50 steps. Time - 71.405 seconds
+
+The solution steps are the same, while the times they take to find the solution are different. While the difference may not seem big in terms of seconds (LLQ takes about 18 seconds more), the difference is big in percentage terms (about 34 percent).
+
+4.  Edit solve.cpp to switch to the 4x4 and then 5x5 slider puzzles.
+Make sure to comment out the delay and print statements in the solveMaze
+function.  How long does it take to solve these puzzles with your
+HeapPriorityQueue versus my UnsortedPriorityQueue?  For most students,
+mine will be faster?  Why might that happen?  Are the asymptotic
+runtimes for the heap versus the unsorted array wrong?
+
+TODO:
+4x4
+HeapPriorityQueue:
+Solution Steps - 224 steps. Time - 6.931 seconds
+UnsortedPriorityQueue:
+Solution Steps - 180 steps. Time - 4.507 seconds
+
+5x5
+HeapPriorityQueue:
+Solution Steps - 628 steps. Time - 403.225 seconds
+UnsortedPriorityQueue:
+Solution Steps - 396 steps. Time - 138.329 seconds
+
+The UPQ performs add at O(1) and remove at O(n). HPQ performs both add and remove at O(lg(n)).
+The sliders involve more adding than removing in general since all the children are added and only the "best" is ever removed with each iteration.
+
+
+
+----------------------------------------------------------------------
+
+We will be checking your implementations of ArrayQueue, LinkedListQueue,
+and HeapPriorityQueue.

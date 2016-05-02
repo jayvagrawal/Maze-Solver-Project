@@ -1,0 +1,94 @@
+Student Name #1: Jayvardhana Agrawal
+Student ugrad login #1: d2a0b
+
+Student Name #2: Tunir Vijayanta Kapil
+Student ugrad login #2: r4w9a
+
+TODO: Acknowledgment that you understand and have followed the course's collaboration policy
+(http://www.ugrad.cs.ubc.ca/~cs221/current/syllabus.shtml#conduct):
+
+TODO: [Jayvardhana Agrawal, Tunir Vijayanta Kapil]
+
+TODO: submit using: make handin-earlybird
+(Run that from one of the UBC ugrad computers, after you have transfered
+your files there and tested to make sure they work correctly on our systems.)
+
+----------------------------------------------------------------------
+
+Questions:
+
+For the explanations, generally a sentence or two should be enough.
+Type your answers directly in this file.
+
+
+1.  Compile and run the solve.cpp program, using the makefile.
+Watch the program solve a maze using DFS.  How many steps long was
+the solution?
+
+TODO: 58 steps long
+
+2.  Edit solve.cpp to switch to the LinkedListStack.  Keep the same
+maze.  How many steps long was the solution?
+
+TODO: 58 steps long
+
+3.  Edit solve.cpp to change the maze to Maze 2.  How many steps long
+was the solution?
+
+TODO: 46 steps long
+      ASSUMPTION: we left the DST as a LinkedListStack
+
+4.  Edit solve.cpp to change the maze to Maze 3.  How many steps long
+was the solution?
+
+TODO: 247 steps long
+
+5.  Edit solve.cpp to change the maze to Maze 4.  How many steps long
+was the solution?
+
+TODO: 110 steps long
+
+6.  By looking at these examples, and by looking at the TextMaze.cpp class,
+which direction does the TextMaze class try to explore first when doing DFS?
+
+TODO: It tries to move down (south) first
+
+7.  Next, edit solve.cpp again to switch to make activeStates
+an UnsortedPriorityQueue.  This gives you best-first search (BestFS).
+Repeat how many steps long is the solution for Mazes 1, 2, 3, and 4?
+Do you see why DFS is called DFS, and BestFS isn't always best?
+
+TODO: Maze 1: 58 steps long (same as DFS)
+      Maze 2: 14 steps long (faster than DFS)
+      Maze 3: 5 steps long (faster than DFS)
+      Maze 4: 90 steps long (faster than DFS)
+      In most cases even though BestFS gave a shorter solution, the process of finding that solution
+      can be longer as compared to DFS.
+
+8.  Edit solve.cpp to solve the empty Sudoku board.  (You should
+only comment out one line and uncomment one line to do that.)
+Then change the delay in the usleep delay in the solveMaze function
+to 100000.  What solution do you get?
+
+TODO: 81 steps long
+      ASSUMPTION: using an UnsortedPriorityQueue
+
+9.  Edit solve.cpp to switch to the 3x3 slider puzzle.  (Be careful not
+to use the unsolvable 3x3!)  Also, comment out the delay and print
+statements in the solveMazefunction.  (Try it first with the delay and
+print, so you can watch the solving process, but take them out for
+timing.) How long (time in seconds) does it take to solve this problem
+with BestFS (using UnsortedPriorityQueue as in the preceding question)?
+
+TODO: less than a second (based on human reaction)
+
+10.  Edit solve.cpp to switch back to ArrayStack or LinkedListStack,
+which switches back to DFS.  Try solving the 3x3 slider puzzle.
+What happens?  Why?
+
+TODO: It took around 9+ minutes to find a solution and an additional 2+ minutes to print out the 48430 steps.
+      This is because it takes the last value and moves it as far up as possible by shifting it to the left at each step.
+      It does this for every single value which takes longer. 
+      The BestFS moves the last value up by simply switching it with the value directly above it.
+
+----------------------------------------------------------------------
