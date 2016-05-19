@@ -39,16 +39,7 @@ AVLDict::~AVLDict() {
   delete [] depth_stats;
 }
 
-// 221 Students:  DO NOT CHANGE THIS FUNCTION
-// You need to call this function from your find (or from a helper function).
-// Pass in the depth in the tree that the find stopped at.
-// E.g., you'd call record_stats(0) if the entire dictionary were
-// a NULL tree and you did a find on it.
-// You'd call record_stats(1) if the entire dictionary were a single
-// node, and you did a find on that dictionary, successful or not.
-// (Another way to understand this is the number of nodes on the chain
-// from the root to the node where the find succeeded,
-// or to a leaf if the find didn't succeed.)
+
 void AVLDict::record_stats(int depth) {
   if (depth > MAX_STATS-1) depth = MAX_STATS-1;
   depth_stats[depth]++;
@@ -71,13 +62,11 @@ bool AVLDict::find_helper(string keyID, node *root, MazeState *&pred, int depth)
 }
 
 bool AVLDict::find(MazeState *key, MazeState *&pred) {
-  // TODO:  Write this function!
 	assert (key != NULL);
 	return find_helper(key->getUniqId(), root, pred, 0);
 }
 
-bool AVLDict::update_height( node * x ) {
-  // TODO:  Write this function!	
+bool AVLDict::update_height( node * x ) {	
 	if (x == NULL)
 		return false;
 
@@ -94,15 +83,9 @@ bool AVLDict::update_height( node * x ) {
 void AVLDict::rotate_left( node *& a ) {
   // "rotates" the subtree rooted at a to the left (counter-clockwise)
 
-// 221 Students:  DO NOT CHANGE OR DELETE THE NEXT FEW LINES!!!
-// We will use this code when marking to be able to watch what
-// your program is doing, so if you change things, we'll mark it wrong.
 #ifdef MARKING_TRACE
 std::cout << "Rotate Left: " << a->getUniqId() << std::endl;
 #endif
-// End of "DO NOT CHANGE" Block
-
-  // TODO:  Write this function!
 	assert(a != NULL);
 	assert(a->right != NULL);
 	node* temp = a->right;
@@ -116,15 +99,9 @@ std::cout << "Rotate Left: " << a->getUniqId() << std::endl;
 void AVLDict::rotate_right( node *& b ) {
   // "rotates" the subtree rooted at b to the right (clockwise)
 
-// 221 Students:  DO NOT CHANGE OR DELETE THE NEXT FEW LINES!!!
-// We will use this code when marking to be able to watch what
-// your program is doing, so if you change things, we'll mark it wrong.
 #ifdef MARKING_TRACE
 cout << "Rotate Right: " << b->getUniqId() << endl;
 #endif
-// End of "DO NOT CHANGE" Block
-
-  // TODO:  Write this function!
 	assert(b != NULL);
 	assert(b->left != NULL);
 	node* temp = b->left;
@@ -196,7 +173,6 @@ void AVLDict::insert(MazeState* key, MazeState* pred, node *&root) {
 
 // You may assume that no duplicate MazeState is ever added.
 void AVLDict::add(MazeState *key, MazeState *pred) {
-  // TODO:  Write this function!
 	assert(key != NULL);
 	insert(key, pred, root);
 }
